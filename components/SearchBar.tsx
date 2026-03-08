@@ -7,7 +7,7 @@ export default function SearchBar() {
     const [gitId, setGitId] = useState("");
     const gitRouter = useRouter()
 
-    const handleSearch = async (e: React.SubmitEvent) => {
+    const handleSearch = (e: React.SyntheticEvent) => {
         e.preventDefault();
         const trimmedGitId = gitId.trim()
 
@@ -17,7 +17,7 @@ export default function SearchBar() {
     }
 
     return (
-        <form>
+        <form onSubmit={handleSearch}>
             <input
                 value={gitId}
                 onChange={(e) => setGitId(e.target.value)}
